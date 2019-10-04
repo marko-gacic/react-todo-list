@@ -28,7 +28,7 @@ class App extends Component {
     items:updatedItems,
     item:"",
     id:uuid(),
-    editItem:false
+    editItem: false
   });
 };
   clearList = ()=>{
@@ -36,15 +36,22 @@ class App extends Component {
       items:[]
     })
   }
-  handleDelete = (id)=>{
+  handleDelete = id=>{
     const filteredItems = this.state.items.filter(item=>item.id !== id);
     this.setState({
       items: filteredItems
     })
   }
-  handleEdit = (id)=>{
-    
-  }
+  handleEdit = id=>{
+    const filteredItems = this.state.items.filter(item=>item.id !== id);
+    const selectedItem = this.state.items.find(item=>item.id === id);
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.title,
+      id: id,
+      editItem: true
+    });
+  };
 
   render () {
 
