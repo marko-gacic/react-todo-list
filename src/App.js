@@ -13,14 +13,16 @@ class App extends Component {
   };
   handleChange = (e)=>{
     this.setState({
-    item: e.target.value});
+    item: e.target.value
+  });
   };
   handleSubmit = (e)=>{
-    e.preventDefault() 
+    e.preventDefault(); 
     const newItem = {
-    id:this.state.id,title:this.state.item
+    id:this.state.id,
+    title:this.state.item
   };
-  const updatedItems = [...this.state.items.newItem]
+  const updatedItems = [...this.state.items,newItem]
 
   this.setState({
     items:updatedItems,
